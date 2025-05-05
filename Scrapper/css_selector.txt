@@ -1,0 +1,82 @@
+
+
+
+
+
+
+
+
+
+
+
+
+4. htmltag[id='value']
+example : input[id='username']
+example : input[id='username'][type='email']  -- css with two attributes
+
+5. contains in css
+example:
+input[id*='user']
+input[id*='name']
+
+suppose 
+id =
+test_123
+test_345
+test_456
+input[id*=test_]
+
+6. starting the text in css
+input[id^='user'] 'username'-^starts with "user"
+
+7 ending the text in css 
+input[id$ = 'name'] 'username'-^ends with "name"
+
+8 comma in css [Generally not used]
+<div class='a'>
+	<input id='username>
+syntax:htmltag.class_name,htmltag#username	
+example:div.a,input#username
+
+9. first of type keyword in css
+example:
+<ul id ='categories'>
+	<li href='www.heywats.up'> #1 
+	.
+	.
+	.
+	<li href='www.grammerly.com'> #14
+
+
+</ul>
+ul#categories>li
+all 14 li would be returned 
+
+# first li would be returned 
+ ul#categories>li:first-of-type 
+ 
+# last li would be returned
+ ul#categories>li:last-of-type 
+ 
+# nth of type
+  ul#categories>li:nth-of-type(1) 1st 
+  ul#categories>li:nth-of-type(5) 5th
+  ul#categories>li:nth-of-type(n) -- all the elements
+  
+ 12 sibling of the element:
+ <div class='a'>
+  <input id='username_1'>
+  </div>
+  <div class='a_sibling'>
+    <input id='username_2'>
+  </div>
+  div.a+div
+  -- div.a ---> <div class='a'>
+				<input id='username_1'>
+				</div>
+	 div.a+div -- > <div class='a_sibling'>
+					<input id='username_2'>
+					</div>
+					
+s
+	
