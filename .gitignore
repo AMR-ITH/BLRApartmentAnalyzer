@@ -1,5 +1,5 @@
 # Ignore the entire data directory
-data/
+data-scraped/
 
 # Ignore the record directory inside Scrapper
 Scrapper/records/

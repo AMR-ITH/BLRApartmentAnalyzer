@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/bits/Sem3/mloops%20Projects/ml-project-banglore-flats/notebooks/mlruns/0/6e91912db40a47a8a529b768ecf46657/artifacts
+end_time: 1746698194381
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 6e91912db40a47a8a529b768ecf46657
+run_name: resilient-midge-293
+run_uuid: 6e91912db40a47a8a529b768ecf46657
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746698150498
+status: 3
+tags: []
+user_id: amrpu

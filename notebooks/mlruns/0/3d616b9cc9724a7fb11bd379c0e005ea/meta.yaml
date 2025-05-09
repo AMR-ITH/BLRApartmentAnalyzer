@@ -1,0 +1,15 @@
+artifact_uri: file:///d:/bits/Sem3/mloops%20Projects/ml-project-banglore-flats/notebooks/mlruns/0/3d616b9cc9724a7fb11bd379c0e005ea/artifacts
+end_time: 1746698329273
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3d616b9cc9724a7fb11bd379c0e005ea
+run_name: best_model
+run_uuid: 3d616b9cc9724a7fb11bd379c0e005ea
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1746698150063
+status: 3
+tags: []
+user_id: amrpu
