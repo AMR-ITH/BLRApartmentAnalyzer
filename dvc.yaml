@@ -1,0 +1,55 @@
+stages:
+
+  data_cleaning:
+    cmd: python src/data/cleaning.py
+    deps:
+      - src/data/cleaning.py
+      - data/raw/appartment.csv
+      - data/raw/lux_scores.json
+    outs:
+      - data/cleaned/appartment_cleaned.csv
+  
+  data_missing_value_imputation:
+    cmd: python src/data/missing_value_imputation.py
+    deps:
+      - src/data/missing_value_imputation.py
+      - data/cleaned/appartment_cleaned.csv
+      
+    outs:
+      - data/interim/appartment_cleaned_interim.csv
+
+
+  
+  data_preprocessing:
+    cmd: python src/features/data_preprocessing.py
+    deps:
+      - src/features/data_preprocessing.py
+      - data/interim/appartment_cleaned_interim.csv
+    outs:
+      - data/processed/train_trans.csv
+      - data/processed/test_trans.csv
+      - models/preprocessor.joblib
+
+  data_train:
+    cmd: python src/models/train_model.py
+    deps:
+      - src/models/train_model.py
+      - data/processed/train_trans.csv
+      - params.yaml
+    outs:
+      - models/model.joblib
+  data_evaluate:
+    cmd: python src/models/evaluation.py
+    deps:
+      - src/models/evaluation.py
+      - data/processed/train_trans.csv
+      - data/processed/test_trans.csv
+      - models/model.joblib
+    outs:
+      - run_information.json
+      
+  register_model:
+    cmd: python src/models/model_register.py
+    deps:
+      - src/models/model_register.py
+      - run_information.json

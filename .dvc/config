@@ -1,0 +1,4 @@
+[core]
+    remote = apartmentrealestate-db
+['remote "apartmentrealestate-db"']
+    url = s3://apartmentrealestate-db

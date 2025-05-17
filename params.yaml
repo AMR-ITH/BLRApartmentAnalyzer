@@ -1,0 +1,12 @@
+Data_Preparation:
+  test_size: 0.2
+  random_state: 42
+Train:
+  Random_Forest:
+    n_estimators: 150
+    max_depth: 29
+    max_features: "log2"
+    min_samples_split: 2
+    min_samples_leaf: 1
+    max_samples: 0.5052045211887413
+    bootstrap: true

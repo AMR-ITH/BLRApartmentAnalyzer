@@ -1,5 +1,6 @@
 # Ignore the entire data directory
 data-scraped/
+token/
 
 # Ignore the record directory inside Scrapper
 Scrapper/records/
