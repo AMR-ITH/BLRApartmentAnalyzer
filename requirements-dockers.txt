@@ -1,8 +1,8 @@
-fastapi[standard]
-scikit-learn == 1.5.2
+streamlit
 pandas
 numpy
-mlflow
-joblib
+matplotlib
 dagshub
-lightgbm
+mlflow
+plotly
+joblib

@@ -303,7 +303,7 @@ with tab2:
         # Map visualization
     st.markdown("<h3 class='sub-header'>Property Map with Price and Area Visualization</h3>", unsafe_allow_html=True)
     
-   # Create figure
+    # Create figure
     fig = go.Figure()
     
     # Add scatter points for properties
@@ -312,14 +312,15 @@ with tab2:
         lon=filtered_df['Longitude'],
         mode='markers',
         marker=dict(
-        size=filtered_df['bulit_area']/100,
-        sizemode='area',
-        sizeref=0.1,
-        color=filtered_df['price_per_sqft'],
-        colorscale='IceFire',
-        showscale=True,
-        colorbar=dict(title="Price per sqft")
+            size=filtered_df['bulit_area'] / 100,
+            sizemode='area',
+            sizeref=0.1,
+            color=filtered_df['price_per_sqft'],
+            colorscale='IceFire',
+            showscale=True,
+            colorbar=dict(title="Price per sqft")
         ),
+        opacity=0.8,
         text=[f"Location: {loc}<br>Price: ₹{price:,.2f}Cr<br>Area: {area} sqft<br>Price/sqft: ₹{ppsqft:,.2f}" 
               for loc, price, area, ppsqft in zip(
                   filtered_df['apartment_loc'], 
@@ -327,6 +328,9 @@ with tab2:
                   filtered_df['bulit_area'], 
                   filtered_df['price_per_sqft'])],
         hoverinfo='text',
+        hoverlabel=dict(
+            bgcolor="white"
+        ),
         name='Properties'
     ))
     
@@ -335,29 +339,29 @@ with tab2:
         {
             'name': 'North Bangalore',
             'coords': [[77.50, 13.17], [77.66, 13.14], [77.66, 13.03], [77.50, 13.03], [77.50, 13.17]],
-            'color': 'rgba(0, 100, 255, 0.8)',
-            'fill': 'rgba(0, 100, 255, 0.2)',
+            'color': 'rgba(25, 118, 210, 0.9)',  # More vibrant blue
+            'fill': 'rgba(25, 118, 210, 0.15)',
             'center': [13.10, 77.58]
         }, 
         {
             'name': 'South Bangalore',
             'coords': [[77.52, 12.93], [77.68, 12.93], [77.68, 12.87], [77.52, 12.87], [77.52, 12.93]],
-            'color': 'rgba(255, 165, 0, 0.8)',
-            'fill': 'rgba(255, 165, 0, 0.2)',
+            'color': 'rgba(255, 145, 0, 0.9)',  # More vibrant orange
+            'fill': 'rgba(255, 145, 0, 0.15)',
             'center': [12.90, 77.60]
         }, 
         {
             'name': 'East Bangalore',
             'coords': [[77.60, 13.02], [77.75, 13.02], [77.75, 12.92], [77.60, 12.92], [77.60, 13.02]],
-            'color': 'rgba(138, 43, 226, 0.8)',
-            'fill': 'rgba(138, 43, 226, 0.2)',
+            'color': 'rgba(142, 36, 170, 0.9)',  # More vibrant purple
+            'fill': 'rgba(142, 36, 170, 0.15)',
             'center': [12.97, 77.67]
         }, 
         {
             'name': 'West Bangalore',
             'coords': [[77.45, 13.02], [77.60, 13.02], [77.60, 12.92], [77.45, 12.92], [77.45, 13.02]],
-            'color': 'rgba(65, 105, 225, 0.8)',
-            'fill': 'rgba(65, 105, 225, 0.2)',
+            'color': 'rgba(0, 150, 136, 0.9)',  # Teal instead of another blue shade
+            'fill': 'rgba(0, 150, 136, 0.15)',
             'center': [12.96, 77.53]
         }
     ]
@@ -378,7 +382,7 @@ with tab2:
             mode='lines',
             fill='toself',
             fillcolor=zone['fill'],
-            line=dict(color=zone['color'], width=2),
+            line=dict(color=zone['color'], width=2.5),  # Slightly thicker line
             name=zone['name']
         ))
         
@@ -393,25 +397,11 @@ with tab2:
             showlegend=False
         ))
     
-    # Create custom buttons for zoom control
-    zoom_buttons = [
-        dict(
-            args=[{"mapbox.zoom": 10}],
-            label="Zoom Out",
-            method="relayout"
-        ),
-        dict(
-            args=[{"mapbox.zoom": 5}],
-            label="Zoom In",
-            method="relayout"
-        )
-    ]
-    
     # Update layout with improved styling
     fig.update_layout(
         mapbox=dict(
             style="carto-positron",  # A cleaner map style
-            center=dict(lat=13.00, lon=77.58),
+            center=dict(lat=12.97, lon=77.58),  # Better centered on Bangalore
             zoom=11
         ),
         height=700,
@@ -423,22 +413,7 @@ with tab2:
             xanchor="right",
             x=1,
             bgcolor="rgba(255,255,255,0.8)"
-        ),
-        updatemenus=[
-            dict(
-                type="buttons",
-                direction="right",
-                buttons=zoom_buttons,
-                pad={"r": 10, "t": 10},
-                showactive=True,
-                x=0.05,
-                xanchor="left",
-                y=0.05,
-                yanchor="bottom",
-                bgcolor="rgba(255,255,255,0.9)",
-                bordercolor="rgba(0,0,0,0.2)"
-            )
-        ]
+        )
     )
     
     # Display the map
@@ -448,56 +423,3 @@ with tab2:
         'modeBarButtonsToRemove': ['lasso2d', 'select2d']
     })
 
-# with tab3:
-#     st.markdown("<h2 class='sub-header'>Location Insights</h2>", unsafe_allow_html=True)
-    
-
-    
-#     # Zone comparison
-#     st.markdown("<h3 class='sub-header'>Zone Comparison</h3>", unsafe_allow_html=True)
-    
-#     col1, col2 = st.columns(2)
-    
-#     with col1:
-#         zone_metrics = filtered_df.groupby('zone').agg({
-#             'price_per_sqft': 'mean',
-#             'bulit_area': 'mean',
-#             'luxury_facility_scores': 'mean'
-#         }).reset_index()
-        
-#         fig = px.bar(
-#             zone_metrics,
-#             x='zone',
-#             y='price_per_sqft',
-#             title='Average Price per sqft by Zone',
-#             color='zone'
-#         )
-#         fig.update_layout(height=400)
-#         st.plotly_chart(fig, use_container_width=True)
-    
-#     with col2:
-#         fig = px.bar(
-#             zone_metrics,
-#             x='zone',
-#             y='luxury_facility_scores',
-#             title='Average Luxury Score by Zone',
-#             color='zone'
-#         )
-#         fig.update_layout(height=400)
-#         st.plotly_chart(fig, use_container_width=True)
-    
-#     # Popular locations
-#     popular_locations = filtered_df['nearbylocation'].value_counts().reset_index()
-#     popular_locations.columns = ['Location', 'Count']
-#     popular_locations = popular_locations.head(10)
-    
-#     fig = px.bar(
-#         popular_locations,
-#         x='Location',
-#         y='Count',
-#         title='Top 10 Popular Locations',
-#         color='Count',
-#         color_continuous_scale='Viridis'
-#     )
-#     fig.update_layout(height=500)
-#     st.plotly_chart(fig, use_container_width=True)
