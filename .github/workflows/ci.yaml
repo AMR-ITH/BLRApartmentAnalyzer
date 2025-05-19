@@ -74,6 +74,7 @@ jobs:
         if: success()
         run: |
             aws s3 cp deployment.zip s3://apartmentrealestatedeployment/deployment.zip
+            
       
       # Deploy to AWS CodeDeploy using the uploaded ZIP file
       - name: Deploy to AWS CodeDeploy
