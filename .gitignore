@@ -4,3 +4,4 @@ token/
 
 # Ignore the record directory inside Scrapper
 Scrapper/records/
+/run_information.json
