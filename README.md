@@ -26,8 +26,11 @@ The data for this project was scraped from [99acres.com](https://www.99acres.com
 - **Preprocessing**: Standardized and transformed data for machine learning.
 - **Training Pipeline**: Automated pipeline for model training and evaluation.
 
+## 🔄 Workflow Architecture
+![image](https://github.com/user-attachments/assets/5d625152-9924-4f22-851f-5cda4c4f88ef)
+
 ### Model Development
-Systematic experimentation was conducted to build a robust price prediction model, with results tracked using **MLflow**:
+Systematic experimentation was conducted to build a robust price prediction model, with results tracked using **MLflow**[DagsHub](https://dagshub.com/AMR-ITH/RealEstateInsights):
 - **Experiment 1**: Simple model with and without target transformation.
 - **Experiment 2**: Model selection across various algorithms.
 - **Experiment 3**: Hyperparameter tuning for Random Forest (RF-HP Tuning).
@@ -46,4 +49,5 @@ Systematic experimentation was conducted to build a robust price prediction mode
 ### CI/CD Deployment
 - **Automated Testing**: Ensured code quality and model performance.
 - **Deployment**: Streamlined deployment of the application for production use.
+
 
