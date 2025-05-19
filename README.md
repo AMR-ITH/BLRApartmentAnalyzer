@@ -31,7 +31,7 @@ The data for this project was scraped from [99acres.com](https://www.99acres.com
 
 
 ### Model Development
-Systematic experimentation was conducted to build a robust price prediction model, with results tracked using **MLflow**[DagsHub](https://dagshub.com/AMR-ITH/RealEstateInsights):
+Systematic experimentation was conducted to build a robust price prediction model, with results tracked using **MLflow**[https://dagshub.com/AMR-ITH/RealEstateInsights](https://dagshub.com/AMR-ITH/RealEstateInsights):
 - **Experiment 1**: Simple model with and without target transformation.
 - **Experiment 2**: Model selection across various algorithms.
 - **Experiment 3**: Hyperparameter tuning for Random Forest (RF-HP Tuning).
@@ -68,7 +68,7 @@ CI/CD pipeline automates the entire deployment process:
 Explore the application through the following links:
 
 - **Production App**: [http://65.0.11.187/](http://65.0.11.187/) ,[https://apprealestateapp-ampnarww3zvyfodus39uf2.streamlit.app](https://apprealestateapp-ampnarww3zvyfodus39uf2.streamlit.app)
-- **Streamlit Cloud**: [Analysis App Demo](https://share.streamlit.io/) (Note: Update this link with the specific Streamlit Cloud URL for your app if available.)
+
 
 ## 📊 Technical Stack
 
