@@ -27,7 +27,8 @@ The data for this project was scraped from [99acres.com](https://www.99acres.com
 - **Training Pipeline**: Automated pipeline for model training and evaluation.
 
 ## 🔄 Workflow Architecture
-<img width="975" height="1036" alt="image" src="https://github.com/user-attachments/assets/1f768120-c264-4d80-bf69-6415184062cc" />
+![image](https://github.com/user-attachments/assets/40ff8904-5be9-4173-ab80-c14dc60a380c)
+
 
 ### Model Development
 Systematic experimentation was conducted to build a robust price prediction model, with results tracked using **MLflow**[https://dagshub.com/AMR-ITH/RealEstateInsights](https://dagshub.com/AMR-ITH/RealEstateInsights):
@@ -49,7 +50,7 @@ Systematic experimentation was conducted to build a robust price prediction mode
 
 ## 🔄 CI/CD Pipeline
 
-![image](https://github.com/user-attachments/assets/5fe21c6d-9f4c-45c5-9b71-18775c96d9dc)
+<img width="975" height="1036" alt="image" src="https://github.com/user-attachments/assets/1f768120-c264-4d80-bf69-6415184062cc" />
 
 
 CI/CD pipeline automates the entire deployment process:
